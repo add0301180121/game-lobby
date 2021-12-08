@@ -2,6 +2,8 @@ package com.hu.rpc.remoting.dto;
 
 import lombok.*;
 
+import java.io.Serializable;
+
 /**
  * 数据传输对象 response
  *
@@ -13,7 +15,8 @@ import lombok.*;
 @Data
 @Builder
 @ToString
-public class RpcResponse {
+public class RpcResponse implements Serializable {
+    private static final long serialVersionUID = 1739465881378422195L;
     private String requestId;
     private String error;
     private Object result;

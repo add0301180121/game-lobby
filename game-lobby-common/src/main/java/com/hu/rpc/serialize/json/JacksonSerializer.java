@@ -7,6 +7,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
+import java.nio.charset.StandardCharsets;
+import java.util.Base64;
+
 /**
  * @author hu
  * @date 2021/12/6
@@ -31,7 +34,7 @@ public class JacksonSerializer implements Serializer {
             e.printStackTrace();
         }
         assert string != null;
-        result = string.getBytes();
+        result = string.getBytes(StandardCharsets.UTF_8);
         return result;
     }
 
