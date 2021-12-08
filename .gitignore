@@ -1,0 +1,7 @@
+# Project exclude paths
+/game-lobby-api/target/
+/game-lobby-client/target/
+/game-lobby-common/target/
+/game-lobby-login-register/target/
+/game-lobby-rank/target/
+/game-lobby-room/target/

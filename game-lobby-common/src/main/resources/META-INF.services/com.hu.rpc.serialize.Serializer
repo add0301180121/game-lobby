@@ -1,0 +1,2 @@
+com.hu.rpc.serialize.protobuf.ProtoStuffSerializer
+com.hu.rpc.serialize.json.JacksonSerializer

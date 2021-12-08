@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="game-lobby-room" />
+        <module name="game-lobby-rank" />
+        <module name="game-lobby-client" />
+        <module name="game-lobby-common" />
+        <module name="game-lobby-api" />
+        <module name="game-lobby-login-register" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="game-lobby-framework" target="8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

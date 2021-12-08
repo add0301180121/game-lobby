@@ -1,0 +1,14 @@
+create database test;
+
+规定password,uid不得超过40个字节
+
+CREATE TABLE `user`(
+   `name` VARCHAR(40) NOT NULL,
+   `password` VARCHAR(100) NOT NULL,
+   `id` VARCHAR(40) NOT NULL,
+   PRIMARY KEY ( `id` )
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+插入
+insert into user(name,password,id) values ("12","013f26cb62f5182e721e1793a243de99af86bac8ed049af145d1aeea8db5a459","1234567890");
+insert into user(name,password,id) values ("张三","1234","1111111");
