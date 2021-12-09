@@ -1,15 +1,14 @@
-package com.hu.rpc.seralize.protobuf;
+package com.hu.rpc.serialize.protobuf;
 
 
-import com.hu.rpc.seralize.Person;
-import com.hu.rpc.seralize.Student;
-import com.hu.rpc.serialize.protobuf.ProtoStuffSerializer;
+import com.hu.rpc.remoting.dto.RpcRequest;
+import com.hu.rpc.serialize.Person;
+import com.hu.rpc.serialize.Student;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
 import java.util.ArrayList;
+import java.util.UUID;
 
 /**
  * @author hu
@@ -39,8 +38,20 @@ public class ProtoStuffSerializerTest {
         person.setStudent(student);
         person.setMore(strings);
 
+        RpcRequest target = RpcRequest.builder().methodName("hello")
+                .parameters(new Object[]{"sayhelooloo", "sayhelooloosayhelooloo"})
+                .className("github.javaguide.HelloService")
+                .paramTypes(new Class<?>[]{String.class, String.class})
+                .requestId(UUID.randomUUID().toString())
+                .version("version1")
+                .build();
+
         byte[] serialize = protoStuffSerializer.serialize(person);
         Person deserialize = protoStuffSerializer.deserialize(serialize, Person.class);
         System.out.println(serialize.length);
+
+        byte[] serialize2 = protoStuffSerializer.serialize(target);
+        RpcRequest deserialize2 = protoStuffSerializer.deserialize(serialize2, RpcRequest.class);
+        System.out.println(serialize2.length);
     }
 }

@@ -1,4 +1,4 @@
-package com.hu.rpc.seralize;
+package com.hu.rpc.serialize;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -6,14 +6,12 @@ import io.protostuff.ProtostuffIOUtil;
 import io.protostuff.Schema;
 import io.protostuff.runtime.RuntimeSchema;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Component;
 
 /**
  * @author hu
  * @date 2021/12/6
  */
 @Slf4j
-@Component
 public class ProtoStuffSerializer implements Serializer {
     /**
      * 避免每次序列化都重新申请Buffer空间

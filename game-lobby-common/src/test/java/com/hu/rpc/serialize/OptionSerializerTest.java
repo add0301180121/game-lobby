@@ -1,29 +1,19 @@
-package com.hu.rpc.seralize.json;
-
+package com.hu.rpc.serialize;
 
 import com.hu.rpc.serialize.json.JacksonSerializer;
-import com.hu.rpc.seralize.Person;
-import com.hu.rpc.seralize.Student;
-
-import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
-
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * @author hu
  * @date 2021/12/6
  */
-@Slf4j
-public class JacksonSerializerTest {
-
-    private JacksonSerializer jacksonSerializer = new JacksonSerializer();
+public class OptionSerializerTest {
 
     @Test
-    public void test() {
+    public void test() throws InstantiationException, IllegalAccessException {
         int[] a = new int[1];
         a[0] = 12;
         Person person = new Person();
@@ -41,8 +31,9 @@ public class JacksonSerializerTest {
         person.setStudent(student);
         person.setMore(strings);
 
-        byte[] serialize = jacksonSerializer.serialize(person);
-        Person deserialize = jacksonSerializer.deserialize(serialize, Person.class);
+        Serializer serializer = OptionalSerializer.getSerializer(JacksonSerializer.class);
+        byte[] serialize = serializer.serialize(person);
+        System.out.println(Arrays.toString(serialize));
         System.out.println(serialize.length);
     }
 }
