@@ -24,9 +24,9 @@ public class KryoSerializer implements Serializer {
 
     private final ThreadLocal<Kryo> kryoThreadLocal = ThreadLocal.withInitial(() -> {
         Kryo kryo = new Kryo();
-        //默认值为true,强调作用
         kryo.setReferences(true);
-        //默认值为false,强调作用
+        //4.0版本 registrationRequired 的值默认为false.
+        //升级到 5.0 后默认为true.需要手动设置为false
         kryo.setRegistrationRequired(false);
         kryo.register(RpcResponse.class);
         kryo.register(RpcRequest.class);
